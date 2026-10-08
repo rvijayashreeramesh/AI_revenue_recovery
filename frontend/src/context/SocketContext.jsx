@@ -17,7 +17,11 @@ export const SocketProvider = ({ children }) => {
   const [lastEvent, setLastEvent] = useState(null);
 
   useEffect(() => {
-    const socketUrl = window.location.hostname === 'localhost' ? 'http://localhost:5000' : '/';
+    const backendEnv = import.meta.env.VITE_BACKEND_URL;
+    const socketUrl = backendEnv 
+      ? backendEnv 
+      : (window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin);
+      
     const s = io(socketUrl, {
       transports: ['websocket', 'polling'],
       reconnectionAttempts: 8,
