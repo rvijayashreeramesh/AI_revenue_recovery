@@ -3,10 +3,11 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 
-// Automatically prefix /api calls with VITE_BACKEND_URL in production if configured
-if (import.meta.env.VITE_BACKEND_URL) {
+// Automatically prefix /api calls with VITE_PUBLIC_API_URL in production if configured
+const apiUrl = import.meta.env.VITE_PUBLIC_API_URL || import.meta.env.VITE_BACKEND_URL;
+if (apiUrl) {
   const originalFetch = window.fetch;
-  const baseUrl = import.meta.env.VITE_BACKEND_URL.replace(/\/$/, '');
+  const baseUrl = apiUrl.replace(/\/$/, '');
   window.fetch = (url, options) => {
     if (typeof url === 'string' && url.startsWith('/api')) {
       return originalFetch(`${baseUrl}${url}`, options);

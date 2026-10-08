@@ -17,7 +17,7 @@ export const SocketProvider = ({ children }) => {
   const [lastEvent, setLastEvent] = useState(null);
 
   useEffect(() => {
-    const backendEnv = import.meta.env.VITE_BACKEND_URL;
+    const backendEnv = import.meta.env.VITE_PUBLIC_API_URL || import.meta.env.VITE_BACKEND_URL;
     const socketUrl = backendEnv 
       ? backendEnv 
       : (window.location.hostname === 'localhost' ? 'http://localhost:5000' : window.location.origin);
