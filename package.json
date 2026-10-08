@@ -1,0 +1,30 @@
+{
+  "name": "ai-revenue-recovery",
+  "version": "1.0.0",
+  "description": "Institutional-Grade AI Revenue Recovery Command Center",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=backend\" \"npm run dev --workspace=frontend\"",
+    "dev:backend": "npm run dev --workspace=backend",
+    "dev:frontend": "npm run dev --workspace=frontend",
+    "install:all": "npm install && npm install --workspace=backend && npm install --workspace=frontend",
+    "build:frontend": "npm run build --workspace=frontend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "fintech",
+    "revenue-recovery",
+    "ai-agent",
+    "palantir-foundry",
+    "stripe-sigma",
+    "payment-failures"
+  ],
+  "author": "Principal Fintech Architect",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,52 @@
+# Dependencies
+node_modules/
+*/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+backend/.env
+!.env.example
+!backend/.env.example
+
+# WhatsApp Web Session & Puppeteer Auth State
+.wwebjs_auth/
+.wwebjs_cache/
+backend/.wwebjs_auth/
+backend/.wwebjs_cache/
+wwebjs_auth/
+wwebjs_cache/
+
+# Production Build Artifacts
+dist/
+build/
+frontend/dist/
+frontend/build/
+
+# Temporary files & Logs
+*.log
+logs/
+*.pid
+*.seed
+frontend/scan
+.tempmediaStorage/
+
+# Editor & OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

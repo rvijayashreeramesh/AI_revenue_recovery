@@ -1,0 +1,262 @@
+/* ==============================================================================
+   INSTITUTIONAL FINTECH DESIGN SYSTEM & IMMERSIVE SHADERS
+   Palantir Foundry / Stripe Sigma Grade Animations
+   ============================================================================== */
+
+/* 1. Subtle Animated Glowing Canvas / Mesh Background */
+@keyframes meshGradientDrift {
+  0% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    background-position: 30% 20%, 70% 30%, 40% 80%, 10% 10%;
+    filter: hue-rotate(6deg);
+  }
+  100% {
+    background-position: 0% 0%, 100% 0%, 50% 100%, 0% 0%;
+    filter: hue-rotate(0deg);
+  }
+}
+
+.animated-canvas-mesh {
+  background-color: #0B0F17;
+  background-image: 
+    radial-gradient(circle at 18% 18%, rgba(17, 24, 39, 0.95) 0%, transparent 65%),
+    radial-gradient(circle at 82% 14%, rgba(6, 182, 212, 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 50% 88%, rgba(16, 185, 129, 0.07) 0%, transparent 60%),
+    radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.04) 0%, transparent 50%),
+    linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 140% 140%, 130% 130%, 150% 150%, 120% 120%, 32px 32px, 32px 32px;
+  animation: meshGradientDrift 24s ease-in-out infinite;
+}
+
+/* 2. Multi-Ring Radar Pulse Animation for Active Scanning States */
+@keyframes radarPing {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.8);
+    opacity: 0;
+  }
+}
+
+@keyframes radarSweep {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.radar-pulse-ring-1 {
+  animation: radarPing 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.radar-pulse-ring-2 {
+  animation: radarPing 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite 0.8s;
+}
+
+.radar-pulse-ring-3 {
+  animation: radarPing 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite 1.6s;
+}
+
+/* 3. Fintech Scanline: 1px Vertical Scanning Laser Line */
+@keyframes verticalLaserScan {
+  0% {
+    top: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0;
+  }
+}
+
+.fintech-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(6, 182, 212, 0.2) 20%,
+    rgba(6, 182, 212, 0.95) 50%,
+    rgba(16, 185, 129, 0.95) 75%,
+    transparent 100%
+  );
+  box-shadow: 0 0 8px 1px rgba(6, 182, 212, 0.7);
+  animation: verticalLaserScan 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* 4. Shimmer Skeleton: Clean Linear Gradient Sweep */
+@keyframes shimmerSweep {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer-skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.03) 0%,
+    rgba(255, 255, 255, 0.08) 35%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.08) 65%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 2.2s infinite ease-in-out;
+}
+
+/* 5. Neon Badge Glows: Box Shadows with Variable Opacity */
+.neon-glow-emerald {
+  box-shadow: 0 0 14px 1px rgba(16, 185, 129, 0.35), inset 0 0 6px 0 rgba(16, 185, 129, 0.2);
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 14px 1px rgba(6, 182, 212, 0.35), inset 0 0 6px 0 rgba(6, 182, 212, 0.2);
+}
+
+.neon-glow-amber {
+  box-shadow: 0 0 14px 1px rgba(245, 158, 11, 0.35), inset 0 0 6px 0 rgba(245, 158, 11, 0.2);
+}
+
+.neon-glow-crimson {
+  box-shadow: 0 0 14px 1px rgba(239, 68, 68, 0.35), inset 0 0 6px 0 rgba(239, 68, 68, 0.2);
+}
+
+@keyframes neonPulseEmerald {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.3), inset 0 0 4px rgba(16, 185, 129, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.65), inset 0 0 8px rgba(16, 185, 129, 0.35);
+  }
+}
+
+.neon-pulse-emerald {
+  animation: neonPulseEmerald 2.5s ease-in-out infinite;
+}
+
+@keyframes neonPulseCyan {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.3), inset 0 0 4px rgba(6, 182, 212, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(6, 182, 212, 0.65), inset 0 0 8px rgba(6, 182, 212, 0.35);
+  }
+}
+
+.neon-pulse-cyan {
+  animation: neonPulseCyan 2.5s ease-in-out infinite;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 21, 34, 0.78);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(21, 29, 42, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6), inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Border Gradient Accent Utilities */
+.border-gradient-emerald {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to right, #0F1522, #0F1522),
+    linear-gradient(135deg, rgba(16, 185, 129, 0.7), rgba(255, 255, 255, 0.08));
+}
+
+.border-gradient-cyan {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to right, #0F1522, #0F1522),
+    linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(255, 255, 255, 0.08));
+}
+
+.border-gradient-amber {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to right, #0F1522, #0F1522),
+    linear-gradient(135deg, rgba(245, 158, 11, 0.7), rgba(255, 255, 255, 0.08));
+}
+
+.border-gradient-crimson {
+  border: 1px solid transparent;
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
+  background-image: 
+    linear-gradient(to right, #0F1522, #0F1522),
+    linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(255, 255, 255, 0.08));
+}
+
+/* 6. Momentary Green Ripple Effect for Recovered Rows */
+@keyframes recoveryRipple {
+  0% {
+    background-color: rgba(16, 185, 129, 0.45);
+    box-shadow: inset 0 0 35px rgba(16, 185, 129, 0.45), 0 0 25px rgba(16, 185, 129, 0.3);
+  }
+  35% {
+    background-color: rgba(16, 185, 129, 0.22);
+    box-shadow: inset 0 0 18px rgba(16, 185, 129, 0.25), 0 0 12px rgba(16, 185, 129, 0.15);
+  }
+  100% {
+    background-color: rgba(16, 185, 129, 0.04);
+    box-shadow: inset 0 0 0px rgba(16, 185, 129, 0), 0 0 0px rgba(16, 185, 129, 0);
+  }
+}
+
+.row-recovery-ripple {
+  animation: recoveryRipple 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.neon-glow-indigo {
+  box-shadow: 0 0 14px 1px rgba(99, 102, 241, 0.35), inset 0 0 6px 0 rgba(99, 102, 241, 0.2);
+}
+
+.neon-glow-blue {
+  box-shadow: 0 0 14px 1px rgba(59, 130, 246, 0.35), inset 0 0 6px 0 rgba(59, 130, 246, 0.2);
+}
+
