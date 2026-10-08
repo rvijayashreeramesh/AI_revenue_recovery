@@ -7,6 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
+    "postinstall": "npx puppeteer browsers install chrome",
     "test": "node test_audit_ledger.js && node test_ai_safety.js && node test_server_scenarios.js"
   },
   "dependencies": {
@@ -16,6 +17,7 @@
     "express": "^4.21.2",
     "groq-sdk": "^0.9.1",
     "mongoose": "^8.8.4",
+    "puppeteer": "^24.38.0",
     "qrcode": "^1.5.4",
     "qrcode-terminal": "^0.12.0",
     "socket.io": "^4.8.1",
